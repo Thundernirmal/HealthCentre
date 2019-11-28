@@ -414,7 +414,7 @@ void update_drug(){
             }
             pat_file<<"1";
         }
-        cout<<"DONE"<<"\n";
+       // cout<<"DONE"<<"\n";
     pat_file.close();
 }
 void read_drug(){
@@ -436,7 +436,7 @@ void read_drug(){
                 drug1.dr_stock=drug1.dr_stock+dr_s;
                 drug1.exp_date=s2;
                 DRUG.push_back(drug1);
-                cout<<"0"<<" "<<DRUG[i].dr_name<<" "<<DRUG[i].dr_stock<<" "<<DRUG[i].exp_date<<"\n";
+               // cout<<"0"<<" "<<DRUG[i].dr_name<<" "<<DRUG[i].dr_stock<<" "<<DRUG[i].exp_date<<"\n";
                 DRUG_NUM++;
                 }
                 if(r==1)
@@ -445,7 +445,7 @@ void read_drug(){
                 }
             }
         }
-    cout<<"OKKA"<<"\n";
+    //cout<<"OKKA"<<"\n";
     pat_file.close();
 }
 void add_drug(){
