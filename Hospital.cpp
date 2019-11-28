@@ -433,10 +433,10 @@ void read_drug(){
                 if(r==0){
                 pat_file>>s1>>dr_s>>s2;
                 drug1.dr_name=s1;
-                drug1.dr_stock=drug1.dr_stock+dr_s;
+                drug1.dr_stock=dr_s;
                 drug1.exp_date=s2;
                 DRUG.push_back(drug1);
-               // cout<<"0"<<" "<<DRUG[i].dr_name<<" "<<DRUG[i].dr_stock<<" "<<DRUG[i].exp_date<<"\n";
+                //cout<<"0"<<" "<<DRUG[i].dr_name<<" "<<DRUG[i].dr_stock<<" "<<DRUG[i].exp_date<<"\n";
                 DRUG_NUM++;
                 }
                 if(r==1)
