@@ -2,6 +2,7 @@
 #include <conio.h>
 using namespace std;
 string machine[1000][2];
+//Classes used in our project are given below
 class Health_Centre
 {  
     int phone;
@@ -119,6 +120,8 @@ class Patient
 
 Doctor D1[50];
 Health_Centre h1;
+
+// Function to enroll a doctor in the system
 void Health_Centre :: add_doctor(int id, string name,long long int phone, string speciality)
 {
     D1[id].dr_id = id;
@@ -126,6 +129,8 @@ void Health_Centre :: add_doctor(int id, string name,long long int phone, string
     D1[id].dr_phone = phone;
     D1[id].dr_speciality = speciality;
 }
+
+// UI element to add the doctor
 void enter_doc(){
     int id=10;
     string name;
@@ -143,6 +148,7 @@ void enter_doc(){
     system("cls");
 }
 
+// Function to take appointment to see doctor
 void Patient :: appointment()
 {
     time_t rawtime;
@@ -187,6 +193,8 @@ void Patient :: appointment()
 		}
     return;
 }
+
+// Function to admit patient in the health centre
 void Patient :: admit()
 {
         time_t rawtime;
@@ -230,6 +238,8 @@ void Patient :: admit()
 		}
     return;
 }
+
+// Function to discharge patient from health centre
 void Patient :: leave()
 {
     time_t rawtime;
@@ -273,6 +283,8 @@ void Patient :: leave()
 		}
     return;
 }
+
+// Function to update details of a patient after he/she goes under operation
 void Patient :: under_go_operation()
 {
                 time_t rawtime;
@@ -320,6 +332,8 @@ void Patient :: under_go_operation()
     return;
 }
 int machine_num=0;
+
+// Function to order machinery items
 void Technical_Staff :: order_machinery(string str,string str2)
 {
     machine[machine_num][0]=str;
@@ -327,11 +341,15 @@ void Technical_Staff :: order_machinery(string str,string str2)
     machine_num++;
 }
 
+// Function to allocate ward
 void Nurse :: set_warding(int x)
 {
     ward_number = x;
 }
+
 Addministration_staff a1;
+
+// UI element function to display the information of doctor
 void Addministration_staff :: doctor_info(int doc)
 {
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";
@@ -342,6 +360,8 @@ void Addministration_staff :: doctor_info(int doc)
 	system("pause");
     system("cls");
 }
+
+// Function to search information of any doctor
 void search_doc(){
     int id;
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";
@@ -349,8 +369,11 @@ void search_doc(){
     a1.doctor_info(id);
     return;
 }
+
 vector < Drug > DRUG;
 int DRUG_NUM=0;
+
+// To supply the medicine written in description
 void Prescription :: give_medicine(string drug,int num_drug)
 {
     for(int i=0;i<DRUG.size();++i)
@@ -363,6 +386,7 @@ void Prescription :: give_medicine(string drug,int num_drug)
     }
 }
 
+// Function to buy drug for health centre
 void Medical :: buy_drug(string drug,int number,string date)
 {
     Drug drug1;
@@ -371,10 +395,11 @@ void Medical :: buy_drug(string drug,int number,string date)
     drug1.exp_date=date;
     DRUG.push_back(drug1);
     DRUG_NUM++;
-    cout<<DRUG_NUM<<" "<<drug1.dr_name<<" "<<drug1.dr_stock<<" "<<drug1.exp_date<<"\n";
 }
 
-void main_macine(){
+// Function of maintain machinery
+void main_macine()
+{
     string str;
     int i=0;
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";
@@ -388,9 +413,13 @@ void main_macine(){
 	system("pause");
     system("cls");
 }
+
 Technical_Staff t1;
 Medical m1;
-void add_machine(){
+
+// Function to add details of a machine installed in health centre
+void add_machine()
+{
     string str,str2;
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";
     cout<<"\n\t\t\t\t\t"<<"\nMachine Name: "; cin>>str;
@@ -448,7 +477,9 @@ void read_drug(){
     //cout<<"OKKA"<<"\n";
     pat_file.close();
 }
-void add_drug(){
+// Function to add a medicine in the pharmacy
+void add_drug()
+{
     string str,str2;
     int stock;
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";
@@ -462,7 +493,10 @@ void add_drug(){
 	system("pause");
     system("cls");
 }
-void drug_search(){
+
+// Function to search a drug available in pharmacy & show its details
+void drug_search()
+{
     string str;
     int i;
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";
@@ -478,7 +512,10 @@ void drug_search(){
 	system("pause");
     system("cls");
 }
-void add_patient(){
+
+// Function to add details of a new patient
+void add_patient()
+{
   time_t rawtime;
   struct tm * timeinfo;
   time ( &rawtime );
@@ -507,6 +544,7 @@ void add_patient(){
             cout<<"\nSex : ";pat_file<<"Sex : ";gets(ak.sex);pat_file<<ak.sex<<"\n";
             cout<<"\nBlood Group : ";pat_file<<"Blood Group : ";gets(ak.blood_gp);pat_file<<ak.blood_gp<<"\n";
             cout<<"\nAny Major disease suffered earlier : ";pat_file<<"Any Major disease suffered earlier : ";gets(ak.disease_past);pat_file<<ak.disease_past<<"\n";
+            cout<<"\nPatient ID : ";pat_file<<"Patient ID : ";gets(ak.id);pat_file<<ak.id<<"\n";
             cout<<"\n********************************************************************\n";pat_file<<"\n********************************************************************\n\n";
             cout<<"\nInformation Saved Successfully\n";
             }
@@ -515,7 +553,9 @@ void add_patient(){
   return;
 }
 
-void add_diagnosi(){
+// Function to add diagnosis of a patient
+void add_diagnosi()
+{
     time_t rawtime;
     struct tm * timeinfo;
     time ( &rawtime );
@@ -560,7 +600,10 @@ void add_diagnosi(){
 		}
     return;
 }
-void patient_info(){
+
+// Function to show details of patient
+void patient_info()
+{
     time_t rawtime;
     struct tm * timeinfo;
     time ( &rawtime );
@@ -592,14 +635,17 @@ void patient_info(){
     system("cls");
     return;
 }
-void information(){
+
+// Function to show information of the Health Centre
+void information()
+{
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
     cout<<"\t\t\t\t\t@@ _______________________________________________________________________________________ @@\n";
     cout<<"\t\t\t\t\t@@|                                           		                                  |@@\n";
     cout<<"\t\t\t\t\t@@|                         IIT HEALTH CENTRE MANAGEMENT SYSTEM                           |@@\n";
     cout<<"\t\t\t\t\t@@|                                Phone number: 842484662                                |@@\n";
     cout<<"\t\t\t\t\t@@|                                           		                                  |@@\n";
-    cout<<"\t\t\t\t\t@@|        A Primary Health Centre (PHC) has been stared at the IIT Jodhpur in 2017.       |@@\n";
+    cout<<"\t\t\t\t\t@@|        A Primary Health Centre (PHC) has been stared at the IIT Jodhpur in 2017.      |@@\n";
     cout<<"\t\t\t\t\t@@|                                           		                                  |@@\n";
     cout<<"\t\t\t\t\t@@|                                           		                                  |@@\n";
     cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
@@ -607,15 +653,18 @@ void information(){
     cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
     cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
     cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
-    cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
-    cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
-    cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
+    cout<<"\t\t\t\t\t@@|                                                 -Manan Chhajer(B18CSE029)             |@@\n";
+    cout<<"\t\t\t\t\t@@|                                                 -Nirmal Katariya(B18CSE022)           |@@\n";
+    cout<<"\t\t\t\t\t@@|                                                 -Shah Parshv(B18CSE051)               |@@\n";
     cout<<"\t\t\t\t\t@@|_______________________________________________________________________________________|@@\n";
     cout<<"\t\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n\n\n\t\t\t\t\t";
     system("pause");
     system("cls");
 }
-int login(int i){
+
+// UI element function of login page
+int login(int i)
+{
    string pass ="";
    char ch;
    string id;
@@ -662,7 +711,10 @@ int login(int i){
 }
 
 Prescription p1;
-void add_pre(){
+
+// Function to add prescription given to patient
+void add_pre()
+{
     time_t rawtime;
     struct tm * timeinfo;
     time ( &rawtime );
@@ -712,18 +764,19 @@ void add_pre(){
             }
             pat_file<<"\n********************************************************************\n";
             cout<<"Information Successfully added\n";
+            update_drug();
 			pat_file.close();
 			cout<<"\n\n";
 			system("pause");
             system("cls");
 		}
-        update_drug();
     return;
 }
+
 void temp_data()
 {
     h1.add_doctor(0,"Dr. Ram Singh",9831545122,"ENT Specialist");
-    h1.add_doctor(1,"Dr.Mukesh Chaudhary",8622136573,"Pediatrician");
+    h1.add_doctor(1,"Dr. Mukesh Chaudhary",8622136573,"Pediatrician");
     h1.add_doctor(2,"Dr. Mukhopadhyay",8460226646,"Psychiatrist");
     h1.add_doctor(3,"Dr. Rajesh Koothrapalli",9645235972,"Surgeon");
     h1.add_doctor(4,"Dr. Suhaag Patel",8756432894,"Physician");
@@ -743,7 +796,10 @@ void temp_data()
 
     read_drug();
 }
-int main(){
+
+// The main executing function
+int main()
+{
     int i;
     char fname[20];
     time_t rawtime;
@@ -838,7 +894,7 @@ int main(){
         cout<<"\t\t\t\t\t\t|             3  >> Exit the Program                              |\n";
         cout<<"\t\t\t\t\t\t|_________________________________________________________________|\n\n";
         c:cout<<"\t\t\t\t\t\tEnter your choice: ";cin>>i;
-        if(i>3||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto c;} //if inputed choice is other than given choice
+        if(i>3||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto c;}//if inputed choice is other than given choice
         if(i==3) { system("cls"); goto start; }
         if(i==1) { system("cls"); add_machine(); goto tech; }
         if(i==2) { system("cls"); main_macine(); goto tech; }
