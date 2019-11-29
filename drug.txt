@@ -46,6 +46,6 @@
 0 Zocor 82765 Dec2020
 0 CalciumTablet 86415 Aug2020
 0 Nirmal 86417 32/32
-0 xxx 408 12/12/12
+0 xxx 388 12/12/12
 0 xxxx 11 12/12/12
 1

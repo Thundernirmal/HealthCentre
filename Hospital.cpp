@@ -798,8 +798,8 @@ void add_pre()
                     }
                 cout<<"\n\t\t\t\t\t"<<"Numbers of Drugs: "; cin>>num;
                 p1.give_medicine(str,num);
-                pat_file<<"\n\tDrug Name\t\t\t\t\tNumberof Drugs";
-                pat_file<<"\n\t"<<str<<"\t\t\t\t\t"<<num;
+                pat_file<<"\n\tDrug Name\t\t\t\t\tNumber of Drugs";
+                pat_file<<"\n\t"<<str<<"\t\t\t\t\t\t\t\t"<<num;
             }
             pat_file<<"\n********************************************************************\n";
             cout<<"Information Successfully added\n";
