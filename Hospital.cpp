@@ -700,28 +700,34 @@ void information()
     system("pause");
     system("cls");
 }
-
+string user[10][3];
+string password[10][3];
 // UI element function of login page
 int login(int i)
 {
    string pass ="";
    char ch;
    string id;
-   string user[3];
-   user[0]="Nirmal";
-   user[1]="Manan";
-   user[2]="Parshv";
-   string password[3];
-   password[0]="Nirmal";
-   password[1]="Manan";
-   password[2]="Parshv";
+   
+   user[0][0]="Nirmal";
+   user[0][1]="Manan";
+   user[0][2]="Parshv";
+   
+   password[0][0]="Nirmal";
+   password[0][1]="Manan";
+   password[0][2]="Parshv";
    cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";
    cout<<"\t\t\t\t\t\t\t\t------------------------------";
    cout<<"\n\t\t\t\t\t\t\t\t\t     LOGIN \n";	
    cout<<"\t\t\t\t\t\t\t\t------------------------------\n\n";
    cout << "\t\t\t\t\t\t\t\tEnter ID: ";
    cin>>id;
-   if(id==user[i-1]){
+   int j;
+   for(j=0;j<10;j++){
+       if(id==user[j][i-1])
+       break;
+   }
+   if(id==user[j][i-1]){
    cout << "\t\t\t\t\t\t\t\tEnter Password: ";
    ch = _getch();
    while(ch != 13){//character 13 is enter
@@ -729,7 +735,7 @@ int login(int i)
       cout << '*';
       ch = _getch();
    }
-   if(pass == password[i-1]){
+   if(pass == password[j][i-1]){
       cout << "\n\n\t\t\t\t\t\t\t\tAccess Granted! \n";
       system("PAUSE");
       system ("CLS");
@@ -835,6 +841,36 @@ void temp_data()
 
     read_drug();
 }
+int USERS=1;
+void add_user_id(int j){
+        cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";	
+        cout<<"\n\n\t\t\t\t\t\tPlease, Enter Following details: \n\n";
+        cout<<"\n\n\t\t\t\t\tEnter ID: "; cin>>user[USERS][j];
+        cout<<"\n\n\t\t\t\t\tEnter Password: "; cin>>password[USERS][j];
+        USERS++;
+        cout<<"\n\n\t\t\t\tInformation Added, Thank you.\n\n";
+        system("pause");
+        system("cls");
+}
+void add_user(){
+        int i;
+        tech1:
+        cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";	
+        cout<<"\n\n\t\t\t\t\t\tPlease,  Choose from the following Options: \n\n";
+        cout<<"\t\t\t\t\t\t _________________________________________________________________ \n";
+        cout<<"\t\t\t\t\t\t|                                           	                  |\n";
+        cout<<"\t\t\t\t\t\t|             1  >> Technical staff                               |\n";
+        cout<<"\t\t\t\t\t\t|             2  >> Front desc staff                              |\n";
+        cout<<"\t\t\t\t\t\t|             3  >> Medical                                       |\n";
+        cout<<"\t\t\t\t\t\t|             4  >> Exit the Program                              |\n";
+        cout<<"\t\t\t\t\t\t|_________________________________________________________________|\n\n";
+        c:cout<<"\t\t\t\t\t\tEnter your choice: ";cin>>i;
+        if(i>4||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto c;}//if inputed choice is other than given choice
+        if(i==4) { system("cls"); return; }
+        if(i==1) { system("cls"); add_user_id(0); goto tech1; }
+        if(i==2) { system("cls"); add_user_id(1); goto tech1; }
+        if(i==3) { system("cls"); add_user_id(2); goto tech1; }
+}
 
 // The main executing function
 int main()
@@ -930,13 +966,15 @@ int main()
         cout<<"\t\t\t\t\t\t|                                           	                  |\n";
         cout<<"\t\t\t\t\t\t|             1  >> Add New Machine                               |\n";
         cout<<"\t\t\t\t\t\t|             2  >> Maintain Machine                              |\n";
-        cout<<"\t\t\t\t\t\t|             3  >> Exit the Program                              |\n";
+        cout<<"\t\t\t\t\t\t|             3  >> Add new user                                  |\n";
+        cout<<"\t\t\t\t\t\t|             4  >> Exit the Program                              |\n";
         cout<<"\t\t\t\t\t\t|_________________________________________________________________|\n\n";
         c:cout<<"\t\t\t\t\t\tEnter your choice: ";cin>>i;
-        if(i>3||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto c;}//if inputed choice is other than given choice
-        if(i==3) { system("cls"); goto start; }
+        if(i>4||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto c;}//if inputed choice is other than given choice
+        if(i==4) { system("cls"); goto start; }
         if(i==1) { system("cls"); add_machine(); goto tech; }
         if(i==2) { system("cls"); main_macine(); goto tech; }
+        if(i==3) { system("cls"); add_user(); goto tech; }
     }
     if(j==3){
         medi:
