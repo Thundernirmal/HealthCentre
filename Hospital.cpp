@@ -477,6 +477,44 @@ void read_drug(){
     //cout<<"OKKA"<<"\n";
     pat_file.close();
 }
+void read_drug_update(){
+    ifstream pat_file;
+    int r;
+    string s1,s2;
+    int dr_s;
+    Drug drug1;
+    pat_file.open("drug.txt");
+    if(!pat_file){
+	cout<<"\nError while opening the file\n";
+	}
+    else{
+        for(int i=0;true;i++){
+            pat_file>>r;
+                if(r==0){
+                pat_file>>s1>>dr_s>>s2;
+                    if(DRUG[i].dr_name==s1 && i<DRUG_NUM)
+                    {
+                    DRUG[i].dr_stock=dr_s;
+                    }
+                    else
+                    {
+                    drug1.dr_name=s1;
+                    drug1.dr_stock=dr_s;
+                    drug1.exp_date=s2;
+                    DRUG.push_back(drug1);
+                    //cout<<"0"<<" "<<DRUG[i].dr_name<<" "<<DRUG[i].dr_stock<<" "<<DRUG[i].exp_date<<"\n";
+                    DRUG_NUM++;
+                    }
+                }
+                if(r==1)
+                {
+                    break;
+                }
+            }
+        }
+    //cout<<"OKKA"<<"\n";
+    pat_file.close();
+}
 // Function to add a medicine in the pharmacy
 void add_drug()
 {
@@ -497,6 +535,7 @@ void add_drug()
 // Function to search a drug available in pharmacy & show its details
 void drug_search()
 {
+    read_drug_update();
     string str;
     int i;
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t  IIT HEALTH CENTRE MANAGEMENT SYSTEM \n\n";
