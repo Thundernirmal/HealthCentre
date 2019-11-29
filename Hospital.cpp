@@ -946,12 +946,14 @@ int main()
         cout<<"\t\t\t\t\t\t|                                           	                  |\n";
         cout<<"\t\t\t\t\t\t|             1  >> Add New Drug                                  |\n";
         cout<<"\t\t\t\t\t\t|             2  >> Search Drug                                   |\n";
-        cout<<"\t\t\t\t\t\t|             3  >> Exit the Program                              |\n";
+        cout<<"\t\t\t\t\t\t|             3  >> View Prescription                             |\n";
+        cout<<"\t\t\t\t\t\t|             4  >> Exit the Program                              |\n";
         cout<<"\t\t\t\t\t\t|_________________________________________________________________|\n\n";
         d:cout<<"\t\t\t\t\t\tEnter your choice: ";cin>>i;
-        if(i>3||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto d;} //if inputed choice is other than given choice
-        if(i==3) { system("cls"); goto start; }
+        if(i>4||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto d;} //if inputed choice is other than given choice
+        if(i==4) { system("cls"); goto start; }
         if(i==1) { system("cls"); add_drug(); goto medi; }
         if(i==2) { system("cls"); drug_search(); goto medi; }
+        if(i==3) { system("cls"); patient_info(); goto medi;}
     }
 }
